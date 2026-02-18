@@ -201,7 +201,8 @@
     .flinks a { font-size:0.78rem; color:var(--gray); text-decoration:none; transition:color 0.2s; }
     .flinks a:hover { color:var(--accent2); }
 
-    /* FLOAT CTA */
+    .tel-btn { display:inline-flex; align-items:center; gap:0.3rem; padding:0.35rem 0.85rem; border-radius:100px; border:1.5px solid var(--accent); color:var(--accent2); font-size:0.78rem; font-weight:600; text-decoration:none; transition:background 0.2s, color 0.2s; white-space:nowrap; }
+    .tel-btn:hover { background:var(--accent); color:#fff; }
     .float-btn { position:fixed; bottom:1.8rem; right:1.8rem; background:var(--accent); color:#fff; border-radius:50px; padding:0.8rem 1.5rem; font-weight:600; font-size:0.88rem; text-decoration:none; box-shadow:0 8px 30px rgba(212,66,10,0.5); z-index:50; transition:background 0.2s, transform 0.2s; display:flex; align-items:center; gap:0.5rem; }
     .float-btn:hover { background:var(--accent2); transform:scale(1.05); }
 
@@ -269,9 +270,15 @@
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Înscrie-te acum →</a>
     </div>
-    <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.5rem;animation:fadeUp 0.7s 0.35s ease both;">
-      <div style="font-size:0.95rem;color:rgba(245,242,238,0.75);font-weight:400;">Claudiu Miculescu &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0748 040 028</span></div>
-      <div style="font-size:0.95rem;color:rgba(245,242,238,0.75);font-weight:400;">Silviu Colareza &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0724 527 686</span></div>
+    <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.6rem;animation:fadeUp 0.7s 0.35s ease both;">
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <span style="font-size:0.95rem;color:rgba(245,242,238,0.75);">Claudiu Miculescu &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0748 040 028</span></span>
+        <a href="tel:+40748040028" class="tel-btn">📞 Sună</a>
+      </div>
+      <div style="display:flex;align-items:center;gap:1rem;">
+        <span style="font-size:0.95rem;color:rgba(245,242,238,0.75);">Silviu Colareza &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0724 527 686</span></span>
+        <a href="tel:+40724527686" class="tel-btn">📞 Sună</a>
+      </div>
     </div>
     <div class="hero-stats">
       <div>
