@@ -268,7 +268,10 @@
     <p class="hero-sub">Obține permisul auto fără stres, alături de instructori răbdători și dedicați. Cursuri categoria B în română și engleză — adaptate ritmului tău.</p>
     <div class="hero-actions">
       <a href="#contact" class="btn-primary">Înscrie-te acum →</a>
-      <a href="tel:+40748040028" class="btn-outline">📞 0748 040 028</a>
+    </div>
+    <div style="margin-top:1.5rem;display:flex;flex-direction:column;gap:0.5rem;animation:fadeUp 0.7s 0.35s ease both;">
+      <div style="font-size:0.95rem;color:rgba(245,242,238,0.75);font-weight:400;">Claudiu Miculescu &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0748 040 028</span></div>
+      <div style="font-size:0.95rem;color:rgba(245,242,238,0.75);font-weight:400;">Silviu Colareza &nbsp;·&nbsp; <span style="color:var(--accent2);font-weight:500;">0724 527 686</span></div>
     </div>
     <div class="hero-stats">
       <div>
@@ -590,21 +593,18 @@
   </div>
 </footer>
 
-<a href="tel:+40748040028" class="float-btn" id="floatBtn">📞 <span id="floatTxt">Sună acum</span></a>
+<div class="float-btn" id="floatBtn">📞 <span id="floatTxt">0748 040 028</span></div>
 
 <script>
-  // Show number on desktop instead of triggering app picker
+  // Float button: call on mobile, display number on desktop
   function updateFloatBtn() {
     const btn = document.getElementById('floatBtn');
-    const txt = document.getElementById('floatTxt');
-    if (window.innerWidth > 768) {
-      btn.removeAttribute('href');
-      btn.style.cursor = 'default';
-      txt.textContent = '0748 040 028';
-      btn.onclick = null;
+    if (window.innerWidth <= 768) {
+      btn.style.cursor = 'pointer';
+      btn.onclick = () => { window.location.href = 'tel:+40748040028'; };
     } else {
-      btn.href = 'tel:+40748040028';
-      txt.textContent = 'Sună acum';
+      btn.style.cursor = 'default';
+      btn.onclick = null;
     }
   }
   updateFloatBtn();
@@ -651,6 +651,17 @@
     nav.style.padding = window.scrollY > 50 ? '0.75rem 4rem' : '1.2rem 4rem';
   });
 
+  // Fix all tel: links on desktop - prevent app picker
+  function fixTelLinks() {
+    document.querySelectorAll('a[href^="tel:"]').forEach(a => {
+      if (window.innerWidth > 768) {
+        a.addEventListener('click', e => e.preventDefault());
+      } else {
+        a.replaceWith(a.cloneNode(true));
+      }
+    });
+  }
+  fixTelLinks();
   // Close mobile menu on outside click
   document.addEventListener('click', e => {
     if(!e.target.closest('nav') && !e.target.closest('#mmenu')) {
